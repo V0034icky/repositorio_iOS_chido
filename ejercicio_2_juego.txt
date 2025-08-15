@@ -1,0 +1,43 @@
+mport Foundation
+ 
+let mensajesGanador = [
+    "¡Has ganado!",
+    "Big brain. Ganaste",
+    "Ganaste paps"
+]
+ 
+let numeroRandom = Int.random(in: 1...100)
+var intentos = 0
+var adivinado = false
+ 
+print("Bienvenido al juego de adivinar el número")
+print("Debes adivinar un número entre 1 y 100")
+ 
+while !adivinado {
+    print("Introduce tu número: ", terminator: "")
+    if let entrada = readLine(), let numeroUsuario = Int(entrada) {
+        intentos += 1
+        if numeroUsuario == numeroRandom {
+            adivinado = true
+            let indiceMensaje = Int.random(in: 0..<mensajesGanador.count)
+            switch indiceMensaje {
+            case 0:
+                print(mensajesGanador[0])
+            case 1:
+                print(mensajesGanador[1])
+            case 2:
+                print(mensajesGanador[2])
+            default:
+                print("¡Ganaste!")
+            }
+            print("Lo lograste en \(intentos) intentos.")
+            break
+        } else if numeroUsuario < numeroRandom {
+            print("El número es mayor. Intenta otra vez.")
+        } else {
+            print("El número es menor. Intenta otra vez.")
+        }
+    } else {
+        print("Por favor, ingresa un número válido.")
+    }
+}
