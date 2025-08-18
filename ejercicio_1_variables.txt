@@ -1,10 +1,10 @@
 import Foundation
  
 //variables explícitas
-var nomber: String = "Vicks"
+var nombre: String = "Vicks"
 var edad: Int = 21
 var altura: Double = 1.73
-var estudianteRealoFeik: Bool = true
+var estudianteRealOFake: Bool = true
 var inicial: Character = "V"
  
 //variables implícitas
@@ -13,12 +13,14 @@ var calificacion = 9.4
 var hermanos = 1
 var alumnoActivo = true
 var grupo = "A"
+var letraGrupo = "B" as Character
  
 print("el tipo de datos de uni es \(type(of: uni))")
 print("el tipo de datos de calificacion es \(type(of: calificacion))")
 print("el tipo de datos de hermanos es \(type(of: hermanos))")
-print("el tipo de datos de unalumnoActivoi es \(type(of: alumnoActivo))")
+print("el tipo de datos de alumnoActivo es \(type(of: alumnoActivo))")
 print("el tipo de datos de grupo es \(type(of: grupo))")
+print("el tipo de datos de letraGrupo es \(type(of: letraGrupo))")
  
 //constantes explicitas
 let edad_1: Int = 50
@@ -33,10 +35,11 @@ let verdad = true
 let random_2 = "buenas"
 let usuarios = 1000
 let version = 1.0
+let inicialConstante: Character = "Z"
  
 print("el tipo de datos de edad_2 es \(type(of: edad_2))")
 print("el tipo de datos de verdad es \(type(of: verdad))")
 print("el tipo de datos de random_2 es \(type(of: random_2))")
 print("el tipo de datos de usuarios es \(type(of: usuarios))")
 print("el tipo de datos de version es \(type(of: version))")
- 
+print("el tipo de datos de inicialConstante es \(type(of: inicialConstante))")
