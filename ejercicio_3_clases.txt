@@ -1,1 +1,91 @@
-dgngngfnmgh
+//programa basado en mario bros
+class Mario{
+    var nombre: String
+    var vidas: Int
+    
+    init( _ nombre: String, vidas: Int){
+        self.nombre = nombre
+        self.vidas = vidas
+    }
+    
+    func saltar() -> String
+    {
+        return "\(nombre) saltó sobre un bloque."
+    }
+    
+    func perderVida() -> String{
+        vidas -= 1
+        return "\(nombre) perdió una vida. Vidas restantes: \(vidas)."
+    }
+}
+
+class Enemigo{
+    var tipo: String
+    var derrotado: Bool = false
+    
+    init( _ tipo: String){
+        self.tipo = tipo
+    }
+    
+    func atacar() -> String{
+        return "El \(tipo) está atacando a Mario."
+    }
+    
+    func enemDerrotado() -> String{
+        derrotado = true
+        return "El \(tipo) fue derrotado."
+    }
+}
+
+class Bloque{
+    var contenido: String
+    
+    init( _ contenido: String){
+        self.contenido = contenido
+    }
+    
+    func golpear() -> String{
+        return "Mario golpeó un bloque y salió: \(contenido)."
+    }
+}
+
+class Moneda{
+    var cantidad: Int
+    
+    init(_ cantidad: Int){
+        self.cantidad = cantidad
+    }
+    
+    func recolectar() -> String{
+        return "Mario recolectó \(cantidad) monedas."
+    }
+}
+
+class Nivel{
+    var numero: Int
+    var completado: Bool = false
+    
+    init(_ numero: Int){
+        self.numero = numero
+    }
+    
+    func completarNivel() -> String{
+        completado = true
+        return "Nivel \(numero) completado!"
+    }
+}
+
+//ejemplo
+let mario = Mario("Mario", vidas: 3)
+let goomba = Enemigo("Goomba")
+let bloque = Bloque("Hongo")
+let monedas = Moneda(10)
+let nivel1 = Nivel(1)
+
+print(mario.saltar())
+print(bloque.golpear())
+print(goomba.atacar())
+print(mario.perderVida())
+print(goomba.enemDerrotado())
+print(monedas.recolectar())
+print(nivel1.completarNivel())
