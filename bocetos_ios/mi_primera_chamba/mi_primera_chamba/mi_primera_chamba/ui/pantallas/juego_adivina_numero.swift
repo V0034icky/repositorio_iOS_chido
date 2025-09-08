@@ -50,49 +50,57 @@ struct 😩: View{
         switch(estado_del_juego){
         case .esta_jugando:
             validar_intento()
+            
         case .ha_ganado:
             intento_del_usuario = 0
             estado_del_juego = .esta_jugando
             numero_aleatorio = Int.random(in: 1...100)
             leyenda = ""
+            entrada_del_usuario = ""
             
         }
     }
     
     var body: some View{
-        VStack{
-            Text("SPOILER: \(numero_aleatorio)")
-                .onTapGesture {
-                    mostrar_spoiler = !mostrar_spoiler
+        ZStack{
+            Color.mint
+                .ignoresSafeArea()
+            
+            VStack{
+                Spoiler(texto: "Numero \(numero_aleatorio)")
+                
+                Spacer()
+                
+                Text("REGLAS")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Text("Adivina el número en el que estoy pensando")
+                Spacer()
+                Text("Cantidad de intentos: \(intento_del_usuario)")
+                    .font(.headline)
+                
+                Spacer()
+                
+                Botonexto(accion: {
+                    if estado_del_juego != .ha_ganado{
+                        loop_juego()
+                    }
+                },
+                          texto: $entrada_del_usuario,
+                          place_holder: "Introduce un numero",
+                          etiqueta: "Intentar")
+                if(estado_del_juego == .ha_ganado){
+                    Button(action: loop_juego){
+                        Text("Reinicia juego")
+                    }
                 }
-                .foregroundStyle((mostrar_spoiler) ? Color.black: Color.white)
-            
-            Spacer()
-            
-            Text("REGLAS")
-            Text("Cantidad de intentos: \(intento_del_usuario)")
-            
-            Spacer()
-            
-            TextField("Introduce un número, por favor", text: $entrada_del_usuario)
-                .frame(width: 250)
-                .multilineTextAlignment(.center)
-            
-            Button(action: loop_juego){
-                Text("Intentar")
-                Image(systemName: "hand.tap.fill")
+                
+                Text(leyenda)
+                
+                Spacer()
+                Spacer()
+                Spacer()
             }
-            if(estado_del_juego == .ha_ganado){
-                Button(action: loop_juego){
-                    Text("Reinicia juego")
-                }
-            }
-            
-            Text(leyenda)
-            
-            Spacer()
-            Spacer()
-            Spacer()
         }
     }
 }
