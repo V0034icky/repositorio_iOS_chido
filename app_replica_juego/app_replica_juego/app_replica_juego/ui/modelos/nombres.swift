@@ -20,8 +20,7 @@ let nombres_capitanes = [
     Nombre(nombre: "L. Meissner: Manhattan, Penthouse", codigos_enigma: 3),
     Nombre(nombre: "R. Hofmann: Manhattan, Ruins", codigos_enigma: 3),
     Nombre(nombre: "W. Hauser, Manhattan, Harbor", codigos_enigma: 2),
-    Nombre(nombre: "F. Baumgartner: Roswell, Underground", codigos_enigma: 4),
+    Nombre(nombre: "F. Baumgartner: Roswell, Harbor", codigos_enigma: 4),
     Nombre(nombre: "J. Schkusser: Roswell, Downtown", codigos_enigma: 5),
-    Nombre(nombre: "E. Eberhardt: Mesquite, Farmhouse", codigos_enigma: 6),
-    Nombre(nombre: "A. Grosse: New Orleans, Lakeview", codigos_enigma: 5)
+    Nombre(nombre: "E. Eberhardt: Mesquite, Farmhouse", codigos_enigma: 6)
 ]

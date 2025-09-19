@@ -23,26 +23,48 @@ struct 😔: View{
                     
                     Spacer()
                     
-                    Text("Códigos Enigmas | 42")
-                        .foregroundStyle(.colorFont)
-                        .padding(6)
-                    
-                    .bold()
+                    HStack{
+                        Text("Códigos Enigmas | 42")
+                            .foregroundStyle(.colorFont)
+                            .padding(6)
+                            .bold()
+                        Image(imagen_ticket)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 30, height: 30)
+                        
+                    }
                 }
                 
-                Text("TITULO")
+                Text("ÜBERCOMMANDER")
+                    .font(.title)
                     .foregroundStyle(.colorFont)
                     .padding(6)
                     .multilineTextAlignment(.leading)
                     .bold()
                 
-                Spacer()
                 VStack{
-                    ColumnasNombres(columna_1: "Nombre", columna_2: "Puntuacion")
                     ForEach(nombres_capitanes){ nombre in
-                        ColumnasNombres(columna_1: nombre.nombre, columna_2: "\(nombre.codigos_enigma)")
+                        HStack{
+                            ColumnasNombres(columna_1: nombre.nombre, columna_2: "\(nombre.codigos_enigma) ")
+                            Image(imagen_ticket)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 30, height: 30)
+                            Text("")
+                        }
+                        .padding(4)
+                        .background(.colorFondo)
+                        .padding(1)
+                        .background(.colorFont)
                     }
                 }
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
                 
             }
             

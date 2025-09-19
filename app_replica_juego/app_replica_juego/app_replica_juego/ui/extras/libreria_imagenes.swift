@@ -8,3 +8,5 @@
 import SwiftUI
 
 let imagen_1 = "imagen_ 1"
+let imagen_ticket = "ticket"
+let imagen_candado = "candado"

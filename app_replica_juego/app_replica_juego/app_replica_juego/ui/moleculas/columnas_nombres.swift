@@ -10,20 +10,29 @@ struct ColumnasNombres: View{
     var columna_1: String
     var columna_2: String
     var body: some View{
-        HStack(alignment: .firstTextBaseline){
-            Text(columna_1)
-                .foregroundStyle(.colorFont)
-                .padding(6)
-                .multilineTextAlignment(.trailing)
-                .bold()
+        ZStack{
             
-            Spacer()
+                Color(.colorFondo)
+                    .ignoresSafeArea()
             
-            Text(columna_2)
-                .foregroundStyle(.colorFont)
-                .padding(6)
-                .multilineTextAlignment(.trailing)
-                .bold()
+            HStack(alignment: .firstTextBaseline){
+                Text(columna_1)
+                    .background(.colorFondo)
+                    .foregroundStyle(.colorFont)
+                    .multilineTextAlignment(.trailing)
+                    .bold()
+                    .padding(4)
+                
+                Spacer()
+                
+                Text(columna_2)
+                    .padding(6)
+                    .background(.colorFondo)
+                    .foregroundStyle(.colorFont)
+                    .multilineTextAlignment(.trailing)
+                    .bold()
+            }
+            .padding(4)
         }
     }
 }
