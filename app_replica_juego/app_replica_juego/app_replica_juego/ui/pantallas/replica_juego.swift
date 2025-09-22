@@ -20,6 +20,7 @@ struct 😔: View{
                         .foregroundStyle(.colorFont)
                         .padding(6)
                         .bold()
+                        .font(.headline)
                     
                     Spacer()
                     
@@ -28,12 +29,14 @@ struct 😔: View{
                             .foregroundStyle(.colorFont)
                             .padding(6)
                             .bold()
+                            .font(.headline)
                         Image(imagen_ticket)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 30, height: 30)
                         
                     }
+                    .padding(15)
                 }
                 
                 Text("ÜBERCOMMANDER")

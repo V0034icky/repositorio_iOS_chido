@@ -7,4 +7,5 @@
 
 import SwiftUI
 
-let color_purpura = Color("colorFondo")
+let color_fondo = Color("ColorFondo")
+let color_font = Color("color_font")
