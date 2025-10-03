@@ -12,9 +12,9 @@ struct PantallConfiguracion: View {
         Text("Pantalla de configuracion")
         
         NavigationLink{
-            PantallaGaleria()
+            PantallaInicio()
         } label: {
-            Text("Ir a pantalla galeria")
+            Text("Ir a inicio")
         }
     }
 }

@@ -7,10 +7,39 @@
 
 import SwiftUI
 
+enum Pestañas{
+    case Configuracion
+    case Galeria
+    case Noticias
+    case Inicio
+    
+}
+
 struct NavegacionPrincipal: View {
+    @State var pestaña_actual: Pestañas = .Inicio
     var body: some View {
-        NavigationStack{
-            PantallaInicio()
+        ///TabView es el menú inferior de una aplicacion
+        TabView(selection: $pestaña_actual){
+            Tab("Inicio", systemImage: "house", value: .Inicio){
+                
+                PantallaInicio()
+            }
+            .badge("wdym")
+            
+            Tab("Noticias", systemImage: "newspaper", value: .Noticias){
+                PantallaNoticias()
+            }
+            .badge(noticias.count)
+            
+            Tab("Galería", systemImage: "photo.artframe", value: .Galeria){
+                
+                PantallaGaleria()
+            }
+            
+            Tab("Configuracion", systemImage: "gear", value: .Configuracion){
+                
+                PantallConfiguracion()
+            }
         }
     }
 }
