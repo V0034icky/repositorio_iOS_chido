@@ -20,8 +20,6 @@ struct PantallaGaleria: View {
 }
 
 #Preview {
-    NavigationStack{
-        PantallaGaleria()
-    }
+    PantallaGaleria()
 }
 

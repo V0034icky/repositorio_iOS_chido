@@ -21,7 +21,6 @@ struct NavegacionPrincipal: View {
         ///TabView es el menú inferior de una aplicacion
         TabView(selection: $pestaña_actual){
             Tab("Inicio", systemImage: "house", value: .Inicio){
-                
                 PantallaInicio()
             }
             .badge("wdym")
@@ -32,12 +31,10 @@ struct NavegacionPrincipal: View {
             .badge(noticias.count)
             
             Tab("Galería", systemImage: "photo.artframe", value: .Galeria){
-                
                 PantallaGaleria()
             }
             
             Tab("Configuracion", systemImage: "gear", value: .Configuracion){
-                
                 PantallConfiguracion()
             }
         }

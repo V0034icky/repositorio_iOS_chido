@@ -20,8 +20,6 @@ struct PantallConfiguracion: View {
 }
 
 #Preview {
-    NavigationStack{
-        PantallConfiguracion()
-    }
+    PantallConfiguracion()
 }
 
