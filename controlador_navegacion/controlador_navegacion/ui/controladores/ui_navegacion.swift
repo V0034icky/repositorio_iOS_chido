@@ -43,4 +43,5 @@ struct NavegacionPrincipal: View {
 
 #Preview {
     NavegacionPrincipal()
+        .environment(ControladorGeneral())
 }

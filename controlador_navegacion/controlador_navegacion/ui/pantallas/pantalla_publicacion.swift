@@ -16,15 +16,29 @@ struct PantallaPublicacion: View {
             .onAppear{
                 controlador.publicacion_seleccionada(publicacion_actual.id)
             }
-        Text(" \(publicacion_actual.body)")
+            .foregroundStyle(color_fondo)
+            .font(.title)
+            .bold()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 20)
         Text("Por: \(publicacion_actual.id)")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 20)
+        Text("\(publicacion_actual.body).")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(20)
         
         ScrollView{
             VStack{
+                Text("Comentarios")
+                    .font(.title2)
+                    .bold()
+                    .foregroundStyle(color_fondo)
                 ForEach(controlador.comentarios){ comentario in
                     Text("\(comentario)")
                 }
             }
+            .padding(20)
         }
     }
 }

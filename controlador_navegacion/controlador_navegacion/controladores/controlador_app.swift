@@ -14,6 +14,7 @@ class ControladorGeneral{
     
     var publicaciones: [Publicacion] = []
     var comentarios: [Comentario] = []
+    var usuarios: [Usuario] = []
     
     var publicacion_actual: Publicacion? = nil
     
@@ -57,5 +58,19 @@ class ControladorGeneral{
             }
         }
         descargar_comentarios(publicacion_actual?.id ?? 0)
+    }
+    
+    func descargar_usuarios() async {
+        guard let usuarios_guardados: [Usuario] = await ServicioWeb().descargar_datos(url: "\(url_base)/users") else { return }
+        usuarios = usuarios_guardados
+        
+        //#if targetEnvironment(simulator)
+        do{
+            try await Task.sleep(for: .seconds(5))
+        }
+        catch{
+            
+        }
+        //#endif
     }
 }
