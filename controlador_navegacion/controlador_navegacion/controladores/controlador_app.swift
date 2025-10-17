@@ -21,6 +21,7 @@ class ControladorGeneral{
     init(){
         Task{
             await descargar_publicaciones()
+            await descargar_usuarios()
         }
     }
     
