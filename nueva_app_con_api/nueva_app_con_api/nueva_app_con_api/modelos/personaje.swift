@@ -10,7 +10,7 @@ import Foundation
 struct Personaje: Identifiable, Codable {
     var id: Int
     var name: String
-    var age: Int
+    var age: Int?
     var gender: String
     var race: String
     var description: String
