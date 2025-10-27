@@ -11,17 +11,55 @@ struct PantallaPersonajes: View {
     @Environment(DemonSlayerApp.self) var controlador
     
     var body: some View {
+        ZStack{
+            Color("color_accents")
+                .ignoresSafeArea(.all)
+            
         Spacer()
-        ForEach(controlador.personajes){ personaje in
-            Text("Yo soy \(personaje.name)")
+            
+            NavigationStack{
+                ScrollView{
+                    ForEach(controlador.personajes){ personaje in
+                        NavigationLink{
+                            Text("Pantalla del personaje \(personaje.name)")
+                            Text("El chiste es: \(controlador.chiste)")
+                                .onAppear{
+                                    controlador.descargar_chiste()
+                                }
+                        }
+                        label:{
+                            TarjetaPersonaje(personaje: personaje)
+                        }
+                        .buttonStyle(.plain)
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(15)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(color_accents, lineWidth: 7)
+                            )
+                            .padding(.top, 5)
+                            .padding(.horizontal)
+                    }
+                }
+            }
         }
         
         Spacer()
         
-        Text("Siguiente página")
-            .onTapGesture {
-                controlador.siguiente_pagina()
+        HStack{
+            Spacer()
+            HStack{
+                Text("Siguiente página")
+                    .onTapGesture {
+                        controlador.siguiente_pagina()
+                    }
+                Image(systemName: "arrowshape.right")
             }
+            .padding()
+            Spacer()
+        }
+        .background(color_accents)
     }
 }
 
