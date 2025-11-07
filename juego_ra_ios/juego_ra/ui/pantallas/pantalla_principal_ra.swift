@@ -2,46 +2,50 @@
 //  pantalla_principal_ra.swift
 //  juego_ra
 //
-//  Created by alumno on 11/7/25.
+//  Created by Jadzia Gallegos on 07/11/25.
 //
-
 import SwiftUI
 
-struct PantallaPrincipal: View {
+struct PantallaPrincipal: View{
     @State var proveedor_ubicacion = ServicioUbicacion()
     
-    var body: some View {
+    
+    var body: some View{
         NavigationStack{
             ForEach(pistas){ pista in
-                if(pista.puedes_ser_recogida(ubicacion: proveedor_ubicacion.ubicacion_actual)
+                if(pista.puede_ser_recogida(
+                    ubicacion: proveedor_ubicacion.ubicacion_actual)
                     ){
-                    
+                    NavigationLink{
+                        Text("Esta es la pantalla de la pista. ")
+                    } label: {
+                        Text("Puchopicame para ir a la pista \(pista.id)")
+                    }
+                    .buttonStyle(.plain)
                 }
-                else if(pista.esta_en_rango(ubicacion: proveedor_ubicacion.ubicacion_actual)
+                else if(pista.esta_en_rango(
+                    ubicacion: proveedor_ubicacion.ubicacion_actual)
                     ){
                     if let porcentaje = pista.calcular_porcentaje(ubicacion: proveedor_ubicacion.ubicacion_actual){
                         switch(porcentaje){
-                        case 1...10:
-                            Text("Te estás quemando")
-                        case 11...20:
-                            Text("Te estás acercando")
-                        case 21...30:
-                            Text("Estás acercandote")
-                        default:
-                            Text("Muy lejos")
-                            
+                            case 1...10:
+                                Text("Te estas quemando")
+                            case 11...20:
+                                Text("Te estas acercando")
+                            case 21...30:
+                                Text("Estas acercandote")
+                            default:
+                                Text("Muy lejos")
                         }
                     }
                 }
                 
-                else{
-                    Text("No se puede obtener la distancia. Comprueba tu conexión con el GPS.")
+                
+                else {
+                    Text("NO se puede obtener la distancia, comprueba tu conexion con el gps")
                 }
-                NavigationLink{
-                    Text("Esta es la pantalla de la pista")
-                } label: {
-                    Text("Pista numero \(pista.id)")
-                }
+
+                
             }
         }
     }
@@ -50,3 +54,4 @@ struct PantallaPrincipal: View {
 #Preview {
     PantallaPrincipal()
 }
+

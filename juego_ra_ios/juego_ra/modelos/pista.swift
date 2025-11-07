@@ -20,7 +20,8 @@ struct Pista: Identifiable{
         }
         let distancia_a_la_pista = ubicacion!.distance(from: self.ubicacion)
         
-        return (distancia_a_la_pista - distancia_minima) * 100 / (distancia_maxima - distancia_minima)
+        return (distancia_a_la_pista - distancia_minima) * 100 /
+        (distancia_maxima - distancia_minima)
     }
     
     func esta_en_rango(ubicacion: CLLocation?) -> Bool{
@@ -34,10 +35,10 @@ struct Pista: Identifiable{
             return false
         }
         
-        return false
+        return true
     }
     
-    func puedes_ser_recogida(ubicacion: CLLocation?) -> Bool {
+    func puede_ser_recogida(ubicacion: CLLocation?) -> Bool{
         if(ubicacion == nil){
             return false
         }
@@ -50,4 +51,5 @@ struct Pista: Identifiable{
         
         return false
     }
+
 }
