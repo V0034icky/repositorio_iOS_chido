@@ -12,10 +12,12 @@ struct PantallaPrincipal: View{
     
     var body: some View{
         NavigationStack{
+            Spacer()
             ForEach(pistas){ pista in
                 if(pista.puede_ser_recogida(
                     ubicacion: proveedor_ubicacion.ubicacion_actual)
                     ){
+                    Spacer()
                     NavigationLink{
                         Text("Esta es la pantalla de la pista. ")
                     } label: {
@@ -39,13 +41,9 @@ struct PantallaPrincipal: View{
                         }
                     }
                 }
-                
-                
                 else {
                     Text("NO se puede obtener la distancia, comprueba tu conexion con el gps")
                 }
-
-                
             }
         }
     }
