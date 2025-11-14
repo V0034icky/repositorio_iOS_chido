@@ -28,3 +28,5 @@ struct PistaInteractuable: CuerpoPista{
     
     var interacciones: [Boton]
 }
+
+

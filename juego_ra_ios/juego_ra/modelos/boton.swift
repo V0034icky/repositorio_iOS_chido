@@ -2,7 +2,7 @@
 //  boton.swift
 //  juego_ra
 //
-//  Created by alumno on 11/10/25.
+//  Created by Jadzia Gallegos on 10/11/25.
 //
 import Foundation
 

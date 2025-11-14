@@ -2,15 +2,23 @@
 //  pantalla_pista_interactuable.swift
 //  juego_ra
 //
-//  Created by alumno on 11/10/25.
+//  Created by Jadzia Gallegos on 10/11/25.
 //
-
 import SwiftUI
 
-struct PantallaPistaInformacion: View {
-    var cuerpo_pista: PistaInformacion
+struct PantallaPistaInteractuable: View {
+    var pista: PistaInteractuable
     
     var body: some View {
-        Text(cuerpo_pista.informacion)
+        Text(pista.informacion)
+        
+        ForEach(pista.interacciones){ boton in
+            NavigationLink {
+                SelectorPantallaPista(pista_id: boton.conecta_con_pista)
+            }
+            label: {
+                Text(boton.mensaje)
+            }
+        }
     }
 }
